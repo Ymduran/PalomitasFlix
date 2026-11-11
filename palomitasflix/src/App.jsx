@@ -1,9 +1,7 @@
-import AppLayout from "./components/layout/AppLayout";
+import SeriesPage from "./pages/public/SeriesPage";
 
-export default function MyApp() {
-  return (
-    <div>
-      <AppLayout />
-    </div>
-  );
+function App() {
+  return <SeriesPage />;
 }
+
+export default App;
