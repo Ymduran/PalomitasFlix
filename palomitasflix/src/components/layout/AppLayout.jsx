@@ -1,33 +1,33 @@
-/**
- * ============================================================================
- * AppLayout.tsx
- * ----------------------------------------------------------------------------
- * Estructura principal y navegación adaptada al rol de la sesión.
- * ============================================================================
- */
-
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import {
+  Bookmark,
+  Film,
+  LayoutDashboard,
+  LogOut,
+  Menu,
+  Tv,
+  X,
+} from "lucide-react";
 import { useSession } from "../../hooks/useSession";
 
 const adminLinks = [
   { to: "/", label: "Resumen", icon: LayoutDashboard },
-  
 ];
 
 const memberLinks = [
-  { to: "/", label: "Resumen" },
-  { to: "/home", label: "Inicio"  },
-  { to: "/series", label: "Series"  },
-  { to: "/movies", label: "Películas" },
-  { to: "/list", label: "Mi lista"  },
+  { to: "/", label: "Inicio", icon: LayoutDashboard },
+  { to: "/home", label: "Explorar", icon: LayoutDashboard },
+  { to: "/movies", label: "Películas", icon: Film },
+  { to: "/series", label: "Series", icon: Tv },
+  { to: "/list", label: "Mi lista", icon: Bookmark },
 ];
 
 export default function AppLayout() {
   const { session, logout } = useSession();
   const [open, setOpen] = useState(false);
   const links =
-      session?.user.role === "usuario" ? memberLinks : adminLinks;
+      session?.user.role === "user" ? memberLinks : adminLinks;
 
   return (
       <div className="app-shell">
