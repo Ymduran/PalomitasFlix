@@ -2,7 +2,7 @@ export default SeriesPage;
 import { useState } from "react";
 import HeaderComponent from "../../components/layout/HeaderComponent";
 import MovieCard from "../../components/movies/MovieCard";
-import { series } from "../../data/seriesMock";
+import { series } from "../../data/seriesData";
 import "../../styles/pages/SeriesPage.css";
 
 const filters = ["Todas", "Drama", "Comedia", "Acción", "Misterio"];
