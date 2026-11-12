@@ -25,6 +25,7 @@ export default function App() {
       {import.meta.env.DEV && (
         <Route element={<PublicLayout />}>
           <Route path="/series-preview" element={<SeriesPage />} />
+          <Route path="/peliculas-preview" element={<PeliculasPage />} />
         </Route>
       )}
 
