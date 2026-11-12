@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import AppLayout from "./components/layout/AppLayout";
+import PublicLayout from "./components/layout/PublicLayout";
 import { ProtectedRoute } from "./components/auth/ProtectedRoute";
-import { useSession } from "./hooks/UseSession"; 
+import { useSession } from "./hooks/UseSession";
 
 import LoginPage from "./pages/Auth/LoginPage";
 import InicioPage from "./pages/public/InicioPage";
@@ -21,12 +22,11 @@ export default function App() {
     <Routes>
       <Route path="/login" element={<LoginPage />} />
 
-      {/* Vista previa temporal, solo en desarrollo */}
+      {/* Vista previa temporal con header y footer, solo en desarrollo */}
       {import.meta.env.DEV && (
-        <Route
-          path="/series-preview"
-          element={<SeriesPage />}
-        />
+        <Route element={<PublicLayout />}>
+          <Route path="/series-preview" element={<SeriesPage />} />
+        </Route>
       )}
 
       <Route element={<ProtectedRoute />}>
@@ -39,10 +39,7 @@ export default function App() {
         </Route>
       </Route>
 
-      <Route
-        path="*"
-        element={<Navigate to="/" replace />}
-      />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
