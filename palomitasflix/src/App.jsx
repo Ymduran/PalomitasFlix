@@ -5,7 +5,7 @@ import { ProtectedRoute } from "./components/auth/ProtectedRoute";
 import { useSession } from "./hooks/UseSession";
 
 import LoginPage from "./pages/Auth/LoginPage";
-import InicioPage from "./pages/public/InicioPage";
+import HomePage from "./pages/public/HomePage";
 import PeliculasPage from "./pages/public/PeliculasPage";
 import SeriesPage from "./pages/public/SeriesPage";
 import MiListaPage from "./pages/public/MiListaPage";
@@ -24,6 +24,7 @@ export default function App() {
       {/* Vista previa temporal sin login, solo en desarrollo */}
       {import.meta.env.DEV && (
         <Route element={<PublicLayout />}>
+          <Route path="/home" element={<HomePage />} />
           <Route path="/series-preview" element={<SeriesPage />} />
           <Route path="/peliculas-preview" element={<PeliculasPage />} />
         </Route>
@@ -31,8 +32,8 @@ export default function App() {
 
       <Route element={<ProtectedRoute />}>
         <Route element={<PublicLayout />}>
-          <Route index element={<InicioPage />} />
-          <Route path="home" element={<InicioPage />} />
+          <Route index element={<HomePage />} />
+          <Route path="home" element={<HomePage />} />
           <Route path="movies" element={<PeliculasPage />} />
           <Route path="series" element={<SeriesPage />} />
           <Route path="list" element={<MiListaPage />} />
