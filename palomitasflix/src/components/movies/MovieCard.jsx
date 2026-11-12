@@ -1,16 +1,30 @@
 export default MovieCard;
-import "../../styles/components/MovieCard.css";
-
 function MovieCard({ title, subtitle, poster, onRemove }) {
   return (
-    <article className="movie-card">
-      <div className="movie-card__poster">
-        {poster && <img src={poster} alt={title} />}
+    <article>
+      <div className="aspect-[2.3/1] overflow-hidden rounded-[var(--radius-card)] bg-[#d9d4cb]">
+        {poster && (
+          <img
+            src={poster}
+            alt={title}
+            className="block h-full w-full object-cover"
+          />
+        )}
       </div>
-      <h3 className="movie-card__title">{title}</h3>
-      <p className="movie-card__meta">{subtitle}</p>
+
+      <h3 className="mt-2.5 text-[0.85rem] font-bold">
+        {title}
+      </h3>
+
+      <p className="mt-0.5 text-[0.7rem] text-[var(--color-muted)]">
+        {subtitle}
+      </p>
+
       {onRemove && (
-        <button className="movie-card__remove" onClick={onRemove}>
+        <button
+          className="mt-2.5 rounded-full border-[1.5px] border-[var(--color-dark)] bg-transparent px-3.5 py-1 text-[0.7rem] font-bold"
+          onClick={onRemove}
+        >
           Quitar
         </button>
       )}

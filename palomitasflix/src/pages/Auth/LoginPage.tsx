@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import { z } from "zod";
 import { Button } from "../../components/ui/Button";
 import { Field, Input } from "../../components/ui/Field";
-import { useSession } from "../../hooks/useSession";
+import { useSession } from "../../hooks/UseSession";
 import "../../styles/login.css";
 
 const schema = z.object({

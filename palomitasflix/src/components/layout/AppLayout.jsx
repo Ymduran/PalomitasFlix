@@ -9,7 +9,7 @@ import {
   Tv,
   X,
 } from "lucide-react";
-import { useSession } from "../../hooks/useSession";
+import { useSession } from "../../hooks/UseSession";
 
 const adminLinks = [
   { to: "/", label: "Resumen", icon: LayoutDashboard },
