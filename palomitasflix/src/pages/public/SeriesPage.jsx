@@ -1,6 +1,5 @@
 export default SeriesPage;
 import { useState } from "react";
-import HeaderComponent from "../../components/layout/HeaderComponent";
 import MovieCard from "../../components/movies/MovieCard";
 import { series } from "../../data/seriesData";
 import "../../styles/pages/SeriesPage.css";
@@ -42,17 +41,13 @@ function SeriesPage() {
   ));
 
   return (
-    <>
-      <HeaderComponent active="series" />
-      <main className="series">
-        <h1>Series</h1>
-        <p className="series__subtitle">Maratones para todos los gustos.</p>
+    <main className="series">
+      <h1>Series</h1>
+      <p className="series__subtitle">Maratones para todos los gustos.</p>
 
-        <div className="series__filters">{filterButtons}</div>
+      <div className="series__filters">{filterButtons}</div>
 
-        <ul className="series__grid">{cards}</ul>
-      </main>
-      <footer className="series__footer">© 2026 PalomitasFlix · Prototipo</footer>
-    </>
+      <ul className="series__grid">{cards}</ul>
+    </main>
   );
 }
