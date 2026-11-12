@@ -1,0 +1,43 @@
+openapi: 3.0.3
+
+info:
+  title: PalomitasFlix API
+  description: Documentación de la API de PalomitasFlix
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8000/api
+    description: Servidor de desarrollo
+
+tags:
+  - name: Películas
+    description: Administración de películas
+  - name: Usuarios
+    description: Administración de usuarios
+
+paths:
+  /movies:
+    get:
+      tags:
+        - Películas
+      summary: Obtener todas las películas
+      responses:
+        "200":
+          description: Lista de películas obtenida correctamente
+
+    post:
+      tags:
+        - Películas
+      summary: Registrar una película
+      responses:
+        "201":
+          description: Película registrada correctamente
+
+  /users:
+    get:
+      tags:
+        - Usuarios
+      summary: Obtener usuarios
+      responses:
+        "200":
+          description: Lista de usuarios obtenida correctamente
